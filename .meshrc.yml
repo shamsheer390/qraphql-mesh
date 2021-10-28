@@ -1,0 +1,42 @@
+sources:
+  - name: CountryInfo
+    handler:
+       soap:
+        wsdl: https://www.crcind.com/csp/samples/SOAP.Demo.cls?WSDL
+    #     basicAuth:
+    #       username: shaik
+    #       password: shaik
+    # transforms:
+    #   - resolversComposition:
+    #       mode: bare
+    #       compositions:
+    #         - resolver: "Query.*"
+    #           composer: ./src/is-auth#isAuth
+    #         - resolver: "Mutation.*"
+    #           composer: ./src/is-auth#isAuth
+    #   - rename:
+    #       mode: wrap # bare won't work here, since this data source already "speaks" GraphQL
+    #       renames:
+    #         - from:
+    #             type: FindPerson
+    #             field: DOB
+    #           to:
+    #             type: FindPerson
+    #             field: dateofbirth
+                
+# serve:
+#   customServerHandler: ./src/customServerHandler.js
+# additionalTypeDefs: |
+#   extend type FindPerson {
+#     home: Home
+#   }
+#   extend type Home {
+#     emp: [FindPerson]
+#   }
+# transforms:
+#   - mock:
+#       mocks:
+#         - apply: FindPerson.City
+#           faker: '{{FindPerson.City}}'
+#         - apply: FindPerson.State
+#           faker: '{{FindPerson.State}}'
